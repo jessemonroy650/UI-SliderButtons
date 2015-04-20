@@ -7,7 +7,7 @@
         <!-- versionCode is optional and Android only -->
         <preference name="phonegap-version" value="3.5.0" />
 
-        <name>shoutit</name>
+        <name>UI SliderButtons</name>
         <description>UI SliderButtons</description>
         <author href="http://bsdmasterindex.com" email="jessemonroy650@yahoo.com">
         Jesse Monroy
