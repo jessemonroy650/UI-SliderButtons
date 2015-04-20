@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Slide2Toggle</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <link rel='stylesheet' type='text/css' href='css/buttons.css'>
+    <link rel='stylesheet' type='text/css' href='default.css'>
+    <link rel='stylesheet' type='text/css' href='slideit.css'>
+    <style>
+    body {margin:0px;font-size:large;}
+	.hidden {visibility:collapse;display:none;}
+	.expose {visibility:visible;display:block;} /* Here for completeness only. */
+	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
+    </style>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
+    <script type="text/javascript">
+	function onButtonClick() {
+		//alert("button clicked.");
+		//document.getElementById('sysinfo').innerHTML = JSON.stringify(Sysinfo, null, 4);
+	}
+	//
+    // Wait for PhoneGap to load
+	document.addEventListener("deviceready", onDeviceReady, false);
+	//
+	function onDeviceReady() {
+		//alert("device ready.");
+	}
+	//
+	function onLoad() {
+		//alert("body loaded.");
+	}
+    </script>
+</head>
+<body onload="onLoad()">
+<div class="button button-block button-large">
+	<img align=left src=favicon-48x48.png>
+	Slide2Toggle
+	<button onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
+</div>
+
+	<p />&nbsp;
+	<p />&nbsp;
+	<div id=slider-button-wrapper><div id=slider-button 
+		class="button button-pill button-action right000" style="margin:0.2em 0.2em;">button</div>
+	</div>
+
+	<div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
+		<span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
+	</div>
+</body>
+<script>
+	var itsOn = 1;
+	$('#slider-button-wrapper').click(function() {
+		//console.log('got click');
+		if (itsOn === 1) {
+			$('#slider-button').removeClass('right000').addClass('right045');
+			itsOn = 0;
+		} else {
+			$('#slider-button').removeClass('right045').addClass('right000');
+			itsOn = 1;
+		}
+	});
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

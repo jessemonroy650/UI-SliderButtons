@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SlideCustom</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <link rel='stylesheet' type='text/css' href='css/buttons.css'>
+    <link rel='stylesheet' type='text/css' href='default.css'>
+    <link rel='stylesheet' type='text/css' href='slider.css'>
+    <style>
+    body {margin:0px;font-size:large;}
+	.hidden {visibility:collapse;display:none;}
+	.expose {visibility:visible;display:block;} /* Here for completeness only. */
+	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
+    </style>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
+
+    <script type="text/javascript">
+	function onButtonClick() {
+		//alert("button clicked.");
+		//document.getElementById('sysinfo').innerHTML = JSON.stringify(Sysinfo, null, 4);
+	}
+	//
+    // Wait for PhoneGap to load
+	document.addEventListener("deviceready", onDeviceReady, false);
+	//
+	function onDeviceReady() {
+		//alert("device ready.");
+	}
+	//
+	function onLoad() {
+		//alert("body loaded.");
+		updateSliderValue();
+	}
+    </script>
+</head>
+<body onload="onLoad()">
+<div class="button button-block button-large">
+	<img align=left src=favicon-48x48.png>
+	SlideCustom
+	<button onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
+</div>
+
+	<p />&nbsp;
+	<p />&nbsp;
+	<span id=slider-value>0</span>
+	<p />&nbsp;
+	<input id=slider type=range />
+
+	<div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
+		<span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
+	</div>
+</body>
+<script>
+	var mousedown = 0;
+
+	$('#slider').on('mousedown', function() {
+		mousedown = 1;
+	});
+	$('#slider').on('mouseup', function() {
+		mousedown = 0;
+		updateSliderValue();
+	});
+
+	// 'mousemove' is very noisey, so keep a filter on it.
+	// http://stackoverflow.com/questions/2924173/looking-for-a-full-list-of-jquery-event-types
+	// 'change' works, but only registers when it 'loses focus', http://api.jquery.com/change/
+	$('#slider').on('mousemove', function(v) {
+		if (mousedown == 1) {
+			//console.log(JSON.stringify(v));
+			console.log($('#slider').val());
+			updateSliderValue();
+		}
+	});
+	function updateSliderValue() {
+		$('#slider-value').html($('#slider').val());
+	}
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

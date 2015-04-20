@@ -1,0 +1,29 @@
+#slider-button-wrapper {
+background-color:#C0C0C0;
+width:11em;
+height:2.25em;
+border:solid 1px black;
+border-radius: 50px;
+}
+
+#slider-button {
+width:6em;
+position:relative;
+transition:all 1s;
+-moz-transition:all 1s;
+-webkit-transition:all 1s;
+}
+
+/* Is this the bug: http://stackoverflow.com/questions/8248948/css-mozilla-transition-not-working */
+/* implement this, get the move to click: http://jsfiddle.net/RwtHn/5/    */ 
+.right000 {left:00% }
+.right030 {left:30% }
+.right045 {left:44% }
+.right060 {left:60% }
+.right065 {left:65% }
+.right100 {left:100% }
+
+@media only screen and (min-width:321px) and (max-width:600px) {
+}
+@media only screen and (max-width:320px) {
+}
