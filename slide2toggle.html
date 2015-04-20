@@ -14,8 +14,8 @@
 	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.1.js"></script>
+    !-- <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script> -->
+    <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
     <script type="text/javascript">
 	function onButtonClick() {
 		//alert("button clicked.");
@@ -43,6 +43,9 @@
 
 	<p />&nbsp;
 	<p />&nbsp;
+	<a href=index.html>back</a>
+	<p />&nbsp;
+	<p />&nbsp;
 	<div id=slider-button-wrapper><div id=slider-button 
 		class="button button-pill button-action right000" style="margin:0.2em 0.2em;">button</div>
 	</div>
@@ -50,19 +53,44 @@
 	<div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
 		<span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
 	</div>
+
+<pre id=dbug_console>
+</pre>
+
 </body>
 <script>
 	var itsOn = 1;
 	$('#slider-button-wrapper').click(function() {
 		//console.log('got click');
 		if (itsOn === 1) {
+			console.log('moving right');
 			$('#slider-button').removeClass('right000').addClass('right045');
 			itsOn = 0;
+			console.log('moving right - done');
 		} else {
+			console.log('moving left');
 			$('#slider-button').removeClass('right045').addClass('right000');
 			itsOn = 1;
+			console.log('moving left - done');
 		}
 	});
+
+	// http://stackoverflow.com/questions/7042611/override-console-log-for-production
+	var myConsole = null;
+	myConsole = document.getElementById("dbug_console");
+
+	var console = {};
+	var theArgs = "";
+	// http://stackoverflow.com/questions/4116608/pass-unknown-number-of-arguments-into-javascript-function
+	console.log = function() {
+		theArgs = "";
+		for (var i = 0; i < arguments.length; i++) {
+			 theArgs = theArgs + JSON.stringify(arguments[i]) + ',' ;
+		}
+		myConsole.innerHTML = theArgs + "\n" + myConsole.innerHTML;
+	};
+	window.console = console;
+
 </script>
 </html>
 

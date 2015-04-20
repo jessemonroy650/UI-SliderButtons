@@ -9,9 +9,9 @@ border-radius: 50px;
 #slider-button {
 width:6em;
 position:relative;
-transition:all 1s;
--moz-transition:all 1s;
 -webkit-transition:all 1s;
+-moz-transition:all 1s;
+transition:all 1s;
 }
 
 /* Is this the bug: http://stackoverflow.com/questions/8248948/css-mozilla-transition-not-working */
